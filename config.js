@@ -2,6 +2,9 @@
  * Mira Media — GITEX Global 2026 outdoor advertising deck.
  * Exhibition dates are 8–11 December 2026 at Expo City Dubai
  * (Dubai Exhibition Centre listing and the gitex.com conference overview).
+ * Arrival Plaza Mega Digital Network at Dubai Exhibition Centre:
+ * 6 screens between the South and North Halls, 6 clients,
+ * 12-second creative at 2400 × 720 px.
  * Expo City destination screens are the current digital network:
  * 6 step, 4 horizontal, 41 MUPI and 14 smart MUPI (65 total).
  * Station counts are from the attached Expo City / Metro credentials (2024).
@@ -32,7 +35,7 @@ window.DECK = {
   cover: {
     line1: "Seen at",
     line2: "GITEX.",
-    hook: "Outdoor media for every company attending GITEX GLOBAL, 8–11 December 2026 — on the metro into Expo City, inside the destination, and on the road under the line.",
+    hook: "Outdoor media for every company attending GITEX GLOBAL, 8–11 December 2026 — on the Arrival Plaza between the South and North Halls, on the metro into Expo City, inside the destination, and on the road under the line.",
     windowLabel: "Campaign window",
     window: "8–11 December 2026",
     venueLabel: "Venue",
@@ -60,10 +63,28 @@ window.DECK = {
     ],
   },
 
+  halls: {
+    title: "Arrival Plaza screens",
+    lead: "Six screens on the Arrival Plaza Mega Digital Network, between the South and North Halls at Dubai Exhibition Centre, where GITEX GLOBAL is held. Shared by 6 clients. Each ad plays for 12 seconds.",
+    photo: "assets/sites/arrival-plaza-photo.png",
+    map: "assets/sites/arrival-plaza-map.jpg",
+    photoClass: "is-hall",
+    mapLight: true,
+    specs: [
+      { label: "Quantity", value: "6 screens" },
+      { label: "Clients", value: "6" },
+      { label: "Resolution", value: "2400 × 720 px" },
+      { label: "Creative", value: "12 seconds · JPEG, PNG or MP4" },
+      { label: "Location", value: "South & North Halls" },
+    ],
+  },
+
   station: {
     title: "Expo Station digital network",
     lead: "134 LED screens at Expo City Station for GITEX GLOBAL, 8–11 December 2026 at Expo City Dubai. Counts are from the 2024 Expo City / Metro credentials. Availability is reconfirmed before booking.",
     total: 134,
+    clients: 10,
+    duration: "12 sec",
     formats: [
       { name: "PSD", screens: 51 },
       { name: "Platform skylight", screens: 46 },
@@ -75,7 +96,7 @@ window.DECK = {
     ],
     specs: [
       "Entrance, platform, concourse and footbridge",
-      "Video or static, 8 seconds per artwork",
+      "Video or static, 12 seconds per artwork, across 10 clients",
       "À la carte digital screens can be added",
     ],
   },
@@ -144,7 +165,7 @@ window.DECK = {
 
   graffiti: {
     title: "Metro graffiti on the Expo road",
-    lead: "Three circuits at the Expo City entrance and exit, on the road under the metro line, during GITEX GLOBAL, 8–11 December 2026.",
+    lead: "Three circuits on the road under the metro line at Expo City, during GITEX GLOBAL, 8–11 December 2026.",
     stats: [
       { label: "Circuits", value: "3" },
       { label: "Stretch", value: "32" },
@@ -163,9 +184,10 @@ window.DECK = {
   rates: {
     peg: 3.6725,
     sites: [
-      { name: "Metro station screens", detail: "134 LED screens at Expo Station", aed: 255000 },
+      { name: "Arrival Plaza screens", detail: "6 screens, 6 clients, 12 sec", aed: 55000 * 3.6725 },
+      { name: "Metro station screens", detail: "134 screens, 10 clients, 12 sec", aed: 255000 },
       { name: "Expo City", detail: "65 screens, 10 clients, 15 sec", aed: 275000 },
-      { name: "Metro graffiti", detail: "Stretch 32, 59 pillars", aed: null },
+      { name: "Metro graffiti", detail: "Stretch 32, 59 pillars", aed: 56000 * 3.6725 },
     ],
     packages: [
       { name: "Metro and Expo City", detail: "Station screens and destination screens", usd: 96785 },
@@ -174,22 +196,28 @@ window.DECK = {
   },
 
   plan: {
-    lead: "Three layers any company attending GITEX GLOBAL, 8–11 December 2026 at Expo City Dubai, can book together or on their own.",
+    lead: "Four layers any company attending GITEX GLOBAL, 8–11 December 2026 at Expo City Dubai, can book together or on their own.",
     layers: [
       {
         num: "01",
-        title: "Arrive",
-        place: "Expo Station",
-        body: "134 LED screens on the entrance, platform, concourse and footbridge. This is the audience coming in by metro.",
+        title: "At the halls",
+        place: "Arrival Plaza",
+        body: "6 screens between the South and North Halls at Dubai Exhibition Centre. Shared by 6 clients. Each ad plays for 12 seconds.",
       },
       {
         num: "02",
+        title: "Arrive",
+        place: "Expo Station",
+        body: "134 LED screens on the entrance, platform, concourse and footbridge. Shared by 10 clients. Each ad plays for 12 seconds.",
+      },
+      {
+        num: "03",
         title: "Arrive on site",
         place: "Expo City",
         body: "65 destination screens — step, horizontal, MUPI and smart MUPI — shared by 10 clients. Each Expo City ad plays for 15 seconds.",
       },
       {
-        num: "03",
+        num: "04",
         title: "Approach",
         place: "Expo road",
         body: "59 pillars across stretches 32A, 32B and 32C, seen from the main road and the service road under the line.",
@@ -198,14 +226,14 @@ window.DECK = {
   },
 
   conditions: {
-    lead: "Booking conditions for GITEX GLOBAL, 8–11 December 2026 at Expo City Dubai. These come from the 2024 Expo City / Metro screen credentials. Mira Media reconfirms each point with the site owner before a campaign is confirmed.",
+    lead: "Booking conditions for GITEX GLOBAL, 8–11 December 2026 at Expo City Dubai. Arrival Plaza and station artwork each play for 12 seconds. Arrival Plaza is shared by 6 clients, and the station by 10. The other points come from the 2024 Expo City / Metro screen credentials. Mira Media reconfirms each point with the site owner before a campaign is confirmed.",
     items: [
       { title: "Payment", body: "Full payment in advance." },
       { title: "VAT", body: "Amounts are subject to 5% VAT." },
       { title: "Artwork deadline", body: "Material is due 10 working days before the campaign." },
       { title: "Language", body: "Artwork must contain 50% Arabic and pass municipality approval." },
       { title: "Cancellation", body: "No cancellation is accepted once the campaign is booked." },
-      { title: "Spot length", body: "Station LED artwork plays for 8 seconds. Expo City artwork plays for 15 seconds, across 10 clients." },
+      { title: "Spot length", body: "Arrival Plaza artwork plays for 12 seconds, across 6 clients. Station LED artwork plays for 12 seconds, across 10 clients. Expo City artwork plays for 15 seconds, across 10 clients." },
     ],
   },
 
@@ -224,7 +252,7 @@ window.DECK = {
     items: [
       "Your company and the campaign objective",
       "Dates inside 8–11 December 2026, or a longer run around the show",
-      "Which layer to use: station, Expo City, the road, or all three",
+      "Which layer to use: the halls, the station, Expo City, the road, or all of them",
       "Arabic and English artwork, or a request for Mira Media to produce it",
       "A budget range so the recommendation can match it",
     ],
@@ -234,7 +262,7 @@ window.DECK = {
     line1: "Book a site",
     line2: "at GITEX.",
     headline: "Book a site at GITEX.",
-    message: "Tell us your company, the dates and the budget for GITEX GLOBAL, 8–11 December 2026 at Expo City Dubai. We will confirm what is still open on the station, inside Expo City and on the Expo road.",
+    message: "Tell us your company, the dates and the budget for GITEX GLOBAL, 8–11 December 2026 at Expo City Dubai. We will confirm what is still open on the Arrival Plaza, on the station, inside Expo City and on the Expo road.",
     address: "Dubai Hills Estate, Park Heights Square 1, 6th floor, Dubai, UAE",
     poBox: "P.O. Box 213983",
     email: "contact@miramedia.ae",

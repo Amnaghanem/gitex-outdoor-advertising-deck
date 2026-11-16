@@ -8,6 +8,7 @@
     { id: 'gitex', title: 'Already on the route' },
     { id: 'why', title: 'Why GITEX Expo 2026' },
     { id: 'audience', title: 'GITEX audience' },
+    { id: 'halls', title: 'Arrival Plaza screens' },
     { id: 'station', title: 'Expo Station screens' },
     { id: 'sites', title: 'Station site pictures' },
     { id: 'more', title: 'More station screens' },
@@ -88,27 +89,35 @@
   }
 
   function siteDetailSlide(num, kicker, title, data, photoAlt, mapAlt) {
-    return `<article class="slide steps-slide" data-slide="${num}">
-          <p class="story-kicker">${kicker}</p>
-          <h1 class="why-title">${title}</h1>
-          <p class="why-lead">${esc(data.lead)}</p>
-          <div class="steps-board">
-            <div class="steps-main">
-              <figure class="site-photo steps-photo">
-                <img src="${esc(data.photo)}" alt="${esc(photoAlt)}" />
-              </figure>
-              <dl class="steps-specs">
+    const photoClass = data.photoClass ? ` ${data.photoClass}` : '';
+    const mapClass = data.mapLight ? ' is-light' : '';
+    const specs = `<dl class="steps-specs">
                 ${data.specs.map((row) => `
                   <div>
                     <dt>${esc(row.label)}</dt>
                     <dd>${esc(row.value)}</dd>
                   </div>`).join('')}
-              </dl>
-            </div>
-            <figure class="steps-map">
-              <img src="${esc(data.map)}" alt="${esc(mapAlt)}" />
-            </figure>
-          </div>
+              </dl>`;
+    const photo = `<figure class="site-photo steps-photo${photoClass}">
+                <img src="${esc(data.photo)}" alt="${esc(photoAlt)}" />
+              </figure>`;
+    const map = `<figure class="steps-map${mapClass}">
+                <img src="${esc(data.map)}" alt="${esc(mapAlt)}" />
+              </figure>`;
+    const board = data.photoClass === 'is-hall'
+      ? `<div class="halls-board">
+            <div class="halls-media">${photo}${map}</div>
+            ${specs}
+          </div>`
+      : `<div class="steps-board">
+            <div class="steps-main">${photo}${specs}</div>
+            ${map}
+          </div>`;
+    return `<article class="slide steps-slide" data-slide="${num}">
+          <p class="story-kicker">${kicker}</p>
+          <h1 class="why-title">${title}</h1>
+          <p class="why-lead">${esc(data.lead)}</p>
+          ${board}
         </article>`;
   }
 
@@ -174,6 +183,13 @@
           <div class="story-panels">
             <article>
               <div class="story-panel-face">
+                <span>Arrival Plaza</span>
+                <strong>6</strong>
+                <em>screens at the halls</em>
+              </div>
+            </article>
+            <article>
+              <div class="story-panel-face">
                 <span>Expo Station</span>
                 <strong>134</strong>
                 <em>LED network screens</em>
@@ -190,7 +206,7 @@
               <div class="story-panel-face">
                 <span>Graffiti</span>
                 <strong>3 <small>Circuits</small></strong>
-                <em>Stretch at Expo City entrance and exit</em>
+                <em>Stretch at Expo City</em>
               </div>
             </article>
           </div>
@@ -201,7 +217,7 @@
           <p class="story-kicker">02 — Why GITEX Expo</p>
           <h1 class="why-title">Why GITEX <span>Expo 2026.</span></h1>
           <hr class="why-rule" />
-          <p class="why-lead">GITEX GLOBAL is at Expo City Dubai, 8–11 December 2026. Every company attending shares the same route: the metro in, the destination itself, and the road at the entrance and exit.</p>
+          <p class="why-lead">GITEX GLOBAL is at Expo City Dubai, 8–11 December 2026. Every company attending shares the same route: the halls, the metro in, the destination itself, and the road under the line.</p>
           <div class="why-cards">
             <article>
               <div class="why-card-top">
@@ -213,7 +229,7 @@
                 </div>
               </div>
               <h2>One destination</h2>
-              <p>The exhibition is at Expo City for four days. The companies attending are already in the same place.</p>
+              <p>The exhibition is at Dubai Exhibition Centre for four days. Six Arrival Plaza screens sit between the South and North Halls.</p>
             </article>
             <article>
               <div class="why-card-top">
@@ -249,7 +265,7 @@
                 </div>
               </div>
               <h2>At the entrance</h2>
-              <p>Three graffiti circuits cover the stretch at the Expo City entrance and exit.</p>
+              <p>Three graffiti circuits cover the stretch at Expo City.</p>
             </article>
           </div>
         </article>`;
@@ -283,14 +299,24 @@
             </article>
             <article>
               <span class="why-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 18 18" fill="none"><path d="M3 12h12M5 12V8h8v4M7 8V6h4v2" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></span>
-              <div><h2>Arriving visitors</h2><p>People on the metro and the entrance road</p></div>
+              <div><h2>Arriving visitors</h2><p>People in the halls, on the metro, and on the entrance road</p></div>
             </article>
           </div>
         </article>`;
 
+      case 'halls':
+        return siteDetailSlide(
+          5,
+          '04 — Dubai Exhibition Centre',
+          'Arrival Plaza <span>screens.</span>',
+          c.halls,
+          'Arrival Plaza mega screens on the South and North Halls at Dubai Exhibition Centre',
+          'Map of the six Arrival Plaza screens between the South and North Halls'
+        );
+
       case 'station':
-        return `<article class="slide station-slide" data-slide="5">
-          <p class="story-kicker">04 — Expo Station</p>
+        return `<article class="slide station-slide" data-slide="6">
+          <p class="story-kicker">05 — Expo Station</p>
           <h1 class="why-title">The metro network <span>into the show.</span></h1>
           <p class="why-lead">134 LED screens at Expo City Station. Counts are from the 2024 credentials and are reconfirmed before booking.</p>
           <div class="station-board">
@@ -298,6 +324,10 @@
               <span>Expo Station</span>
               <strong>${c.station.total}</strong>
               <em>LED network screens</em>
+              <ul class="city-facts">
+                <li><b>${c.station.clients}</b> Clients</li>
+                <li><b>${esc(c.station.duration)}</b> Ad duration</li>
+              </ul>
             </article>
             <div class="station-formats">
               ${c.station.formats.map((f) => {
@@ -316,7 +346,7 @@
       case 'sites': {
         const order = ['skylight', 'totem', 'column'];
         return `<article class="slide metro-slide" data-slide="6">
-          <p class="story-kicker">05 — Metro station screens</p>
+          <p class="story-kicker">06 — Metro station screens</p>
           <h1 class="why-title">Metro station <span>screens.</span></h1>
           <p class="why-lead">Three formats at Expo City Station: platform skylight, entrance totem and LED column.</p>
           <div class="metro-sites">
@@ -337,7 +367,7 @@
       case 'more': {
         const order = ['desk', 'wall', 'psd'];
         return `<article class="slide metro-slide" data-slide="7">
-          <p class="story-kicker">06 — Metro station screens</p>
+          <p class="story-kicker">07 — Metro station screens</p>
           <h1 class="why-title">More station <span>screens.</span></h1>
           <p class="why-lead">Ticketing office and police room, wall unit, and PSD at Expo City Station.</p>
           <div class="metro-sites">
@@ -492,7 +522,7 @@
         return `<article class="slide rate-slide" data-slide="13">
           <p class="story-kicker">15 — Rates</p>
           <h1 class="why-title">The <span>schedule.</span></h1>
-          <p class="why-lead">US dollars. Dirham prices are converted at ${c.rates.peg} AED per dollar. Graffiti is not priced yet.</p>
+          <p class="why-lead">US dollars. Dirham prices are converted at ${c.rates.peg} AED per dollar.</p>
           <div class="rate-schedule">
             <p class="rate-label">On their own</p>
             ${c.rates.sites.map((item) => `
